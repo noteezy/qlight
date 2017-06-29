@@ -1,0 +1,275 @@
+body, html{
+    height: 100%;
+}
+body{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+}
+.container{
+    width: 90%;
+    margin: 0 auto;
+}
+.head-logo{
+  text-align: center;
+  float: left;
+}
+.head-logo p{
+  color: silver;
+  font-style: italic;
+  margin-top: -5px;
+  padding: 0;
+}
+.head-logo p>span{
+  color: #fdc422;
+  font-weight: 600;
+}
+.head-logo img{
+  margin-top: 20px;
+}
+.head{
+  border-bottom: 1px solid lightgrey;
+}
+.head nav{
+  display: inline-block;
+  float: right;
+}
+.head ul{
+  font-family: monospace;
+  margin-top: 40px;
+  list-style-type: none;
+  display: inline-block;
+}
+.head ul li{
+  border: 1.5px solid transparent;
+  margin: 0 15px;
+  display: inline-block;
+  padding: 3px 10px;
+  background-color: rgb(9,50,138);
+}
+.head ul li:hover{
+  color: rgb(9,50,138);
+  box-sizing: content-box;
+  border: 1.5px solid #fdc422;
+  background-color: white;
+}
+.head ul li:hover a{
+  color: rgb(9,50,138);
+}
+.head ul li>a{
+  color: white;
+  font-size: 17px;
+  text-decoration: none;
+}
+.head::after{
+  content: " ";
+  display: block;
+  clear: both;
+}
+.heading{
+  text-align: center;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: #979797;
+  border-bottom: 1px solid lightgrey;
+}
+.heading h1{
+  line-height: 2;
+  font-style: italic;
+  font-size: 45px;
+  margin: 15px 0 0 0;
+  font-weight: 500;
+}
+.heading p{
+  line-height: 1.5;
+  margin: 0;
+  padding-bottom: 30px;
+}
+.heading::after{
+  content: " ";
+  display: block;
+  clear: both;
+}
+.pages li a{
+  color: rgb(9,50,138);
+  text-decoration: none;
+}
+.pages li a:visited{
+  color: #fdc422;
+}
+/*weather.html*/
+.weather{
+  margin: 0 auto;
+  width: 435px;
+}
+.day{
+  margin-left: 5px;
+  background-color: white;
+  width: 140px;
+  text-align: center;
+  float: left;
+}
+.day:hover{
+  box-shadow: 0px 0px 16px 4px rgba(102,102,102,1);
+}
+.day img{
+  width: 140px;
+}
+.day p{
+  margin: 0;
+}
+.day-title{
+  font-size: 18px;
+  background-color: #0097b9;
+  color: white;
+}
+.day-title p{
+  padding: 3px 0;
+}
+.day-temp{
+  font-size: 22px;
+  font-weight: 400;
+  padding-bottom: 10px;
+}
+/*blog.html*/
+.news{
+  overflow: hidden;
+  margin-top: 20px;
+  margin-bottom: 25px;
+  margin-left: -15px;
+  border-bottom: 1px solid lightgrey;
+}
+.short-news{
+  padding-right: 10px;
+  box-sizing: border-box;
+  width: 33.33%;
+  padding: 0 15px;
+  float: left;
+  margin-bottom: 10px;
+}
+.short-news h4{
+  margin: 0;
+  padding-bottom: 10px;
+  clear: both;
+}
+.short-news img{
+  margin: 0 10px 5px 0;
+  float: left;
+  padding: 4px;
+  border: 1px solid #DEDEDE;
+}
+.short-news p{
+  color: #535353;
+  line-height: 1.5;
+  margin: 0;
+}
+.short-news a{
+  font-size: 15px;
+  float: right;
+  text-decoration: none;
+  color: #fdc422;
+  font-weight: 700;
+  padding: 20px 5px 0 0;
+}
+.info{
+  margin-bottom: 15px;
+}
+.info a{
+  font-size: 15px;
+  float: right;
+  text-decoration: none;
+  color: #fdc422;
+  font-weight: 700;
+  padding: 5px 10px 0 0;
+}
+.info-1{
+  color: #535353;
+  width: 66.6%;
+  float: left;
+  padding-right: 10px;
+  box-sizing: border-box;
+}
+.info-1 h3{
+  color: rgb(9,50,138);
+  text-decoration: underline;
+  text-decoration-color: rgb(9,50,138);
+}
+.info-1 p{
+  font-style: italic;
+}
+.info-2{
+  color: #535353;
+  width: 33.3%;
+  float: left;
+}
+.info-2 h3{
+  color: rgb(9,50,138);
+  text-decoration: underline;
+  text-decoration-color: rgb(9,50,138);
+}
+/*table.html*/
+.table1 table{
+  margin: 0 auto;
+  border-collapse: collapse;
+  border: 1px solid black;
+  margin-top: 30px;
+}
+.table1 table td{
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+}
+.border-bottom{
+  border-bottom: 1px solid black;
+}
+/*thumbnail.html*/
+.pic{
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
+.pic-vis{
+  width: 300px;
+  height: 300px;
+  position: relative;
+  display: inline-block;
+  border-radius: 15px;
+}
+.pic-vis img{
+  width: 300px;
+  height: 300px;
+  border-radius: 15px;
+}
+.pic-vis:hover::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, .5);
+}
+.close{
+  font-size: 25px;
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  z-index: 2;
+  opacity: 0;
+  color: white;
+}
+.short-intro{
+  opacity: 0;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: white;
+  z-index: 2;
+}
+.pic-vis:hover{
+  box-shadow: 0 0 20px 0 #000;
+}
+.pic-vis:hover .short-intro,
+.pic-vis:hover .close{
+  opacity: 1;
+}
