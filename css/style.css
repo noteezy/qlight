@@ -314,3 +314,66 @@ p.contact-form{
   color: white;
   font-weight: 700;
 }
+/*registration1.html*/
+.registr-form{
+  background-color: gainsboro;
+  border-radius: 3px;
+  width: 400px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+.registr-form div{
+  text-align: right;
+  padding: 10px 15px 10px 15px;
+}
+.registr-form p{
+  display: inline;
+  padding-right: 10px;
+}
+.registr-form select{
+  border-radius: 4px;
+  box-shadow: 0;
+  border: 0;
+  padding: 5px 10px 5px 10px;
+}
+.registr-country select{
+  border-radius: 4px;
+  box-shadow: 0;
+  border: 0;
+  box-sizing: content-box;
+  padding: 5px 10px 5px 10px;
+  width: 200px;
+}
+.registr-form input[type="text"],
+.registr-form input[type="email"],
+.registr-form input[type="password"]
+{
+  float: right;
+  border-radius: 4px;
+  box-shadow: 0;
+  border: 0;
+  padding: 5px 10px 5px 10px;
+  width: 200px;
+}
+.registr-form label{
+  width: 110px;
+  display: inline-block;
+  text-align: left;
+}
+.registr-agree{
+  width: 250px;
+  margin: auto;
+}
+.registr-form button{
+  border-radius: 7px;
+  width: 100px;
+  border: 0;
+  padding: 7px;
+  color: white;
+}
+.registr-form button[type="submit"]{
+  background-color: rgb(91,185,91);
+}
+.registr-form button[type="reset"]{
+  background-color: rgb(217,85,80);
+}
