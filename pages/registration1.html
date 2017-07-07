@@ -29,23 +29,27 @@
 <div class="registr-form">
   <form action="" method="post">
     <div>
-      <p>First Name</p>
-      <input type="text" name="firstName"
+      <label for="firstName">First Name</label>
+      <input type="text" name="firstName" id="firstName"
       placeholder="Enter First Name...">
     </div>
     <div>
-      <p>Last Name</p>
-      <input type="text" name="lastName"
+      <label for="lastName">Last Name</label>
+      <input type="text" name="lastName" id="lastName"
       placeholder="Enter Last Name...">
     </div>
     <div>
-      <p>Screen Name</p>
-      <input type="text" name="screenName"
+      <label for="screenName">Screen Name</label>
+      <input type="text" name="screenName" id="screenName"
       placeholder="Enter Screen Name...">
     </div>
+
+
+
     <div>
-      <p>Date of Birth</p>
-      <select name="month">
+      <label for="month">Date of Birth</label>
+      <div class="registr-date">
+      <select name="month" id="month">
         <option value="January">January</option>
         <option value="February">February</option>
         <option value="March">March</option>
@@ -53,60 +57,67 @@
         <option value="May">May</option>
         <option value="June">June</option>
       </select>
-      <select nmae="day">
+      <select name="day" id="day">
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
         <option value="4">4</option>
         <option value="5">5</option>
       </select>
-      <select name="year">
+      <select name="year" id="year">
         <option value="1987">1987</option>
         <option value="1988">1988</option>
         <option value="1989">1989</option>
         <option value="1990">1990</option>
         <option value="1991">1991</option>
       </select>
+      </div>
     </div>
-    <div>
-      <p>Gender</p>
-      <label>
-        <input type="radio" name="gender" value="male">Male
-      </label>
-      <label>
-        <input type="radio" name="gender" value="female">Female
-      </label>
-    </div>
+
+<div >
+  <label>Gender</label>
+  <input type="radio" name="gender" value="male" id="male">
+  <label class="registr-gender" for="male">Male</label>
+  <input type="radio" name="gender" value="female" id="female">
+  <label class="registr-gender" for="female">Female</label>
+</div>
+
+
     <div class="registr-country">
-      <p>Country</p>
-      <select name="country">
+      <label for="country">Country</label>
+      <select name="country" id="country">
         <option value="ua">UA</option>
         <option value="usa">USA</option>
       </select>
     </div>
+
+
     <div>
-      <p>Email</p>
-      <input type="email" name="email"
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email"
       placeholder="Enter E-mail...">
     </div>
     <div>
-      <p>Phone</p>
-      <input type="text" name="phone"
+      <label for="phone">Phone</label>
+      <input type="phone" name="email" id="phone"
       placeholder="Enter Phone...">
     </div>
+
     <div>
-      <p>Password</p>
-      <input type="password" name="password">
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password">
     </div>
     <div>
-      <p>Confirm Password</p>
-      <input type="password" name="password">
+      <label for="confirm-password">Confirm Password</label>
+      <input type="password" name="email" id="confirm-password">
     </div>
+
+
     <div class="registr-agree">
-      <input type="checkbox" name="agree" value="agree">
-      <p>I agree to the Terms of Use</p>
+      <input type="checkbox" name="agree" value="agree" id="agree">
+      <label for="agree">I agree to the Terms of Use</p>
     </div>
-    <div>
+    <div class="registr-button">
       <button type="submit">Submit</button>
       <button type="reset">Cancel</button>
     </div>

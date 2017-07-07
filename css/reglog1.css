@@ -1,0 +1,35 @@
+body, html{
+    height: 100%;
+}
+body{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+}
+.container{
+    width: 80%;
+    margin: 0 auto;
+}
+.header{
+  padding: 35px 5px 35px 5px;
+  border-bottom: 1px solid gainsboro;
+}
+.head-group{
+  float: right;
+}
+.head-group a{
+  display: inline-block;
+  text-align: center;
+  border: 2px solid rgb(29,181,142);
+  border-radius: 20px;
+  padding: 10px 30px 10px;
+  text-decoration: none;
+  color: black;
+  margin-left: 20px;
+  width: 110px;
+}
+.head-group a.menu-active{
+  background-color: rgb(29,181,142);
+  color: white;
+}

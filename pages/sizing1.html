@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+  <meta charset="UTF-8">
+  <title>QLight</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+
+<style type="text/css">
+  .col{
+    background-color: blue;
+    width: 25%;
+    height: 50px;
+    float: left;
+    border: 1px solid black;
+    box-sizing: border-box;
+  }
+  .first{
+    background-color: blue;
+    width: 25%;
+  }
+  .second{
+    background-color: red;
+    width: 12.5%;
+  }
+  .third{
+    background-color: green;
+    width: 16.6666%;
+  }
+  .row::after{
+    content: '';
+    clear: both;
+    display: table;
+  }
+
+
+  @media only screen and (max-width : 1200px) {
+    .first{
+      width: 50%;
+    }
+    .second{
+    width: 33.3333%;
+    }
+    .second:nth-last-child(2),
+    .second:nth-last-child(1){
+      width: 50%;
+    }
+    .third{
+      width: 100%;
+    }
+  }
+
+  @media only screen and (max-width : 992px) {
+    .first{
+      width: 100%;
+    }
+    .second{
+    width: 50%;
+    }
+    .third{
+      width: 33.333%;
+    }
+  }
+
+  @media only screen and (max-width : 768px) {
+    .first{
+      width: 50%;
+    }
+    .second{
+    width: 25%;
+    }
+
+    .third{
+      width: 100%
+    }
+    .second:nth-last-child(2),
+    .second:nth-last-child(1){
+      width: 25%;
+    }
+  }
+
+</style>
+
+</head>
+<body>
+
+<div class="row">
+<div class="first col"></div>
+<div class="first col"></div>
+<div class="first col"></div>
+<div class="first col"></div>
+</div>
+
+<div class="row">
+<div class="second col"></div>
+<div class="second col"></div>
+<div class="second col"></div>
+<div class="second col"></div>
+<div class="second col"></div>
+<div class="second col"></div>
+<div class="second col"></div>
+<div class="second col"></div>
+</div>
+
+<div class="row">
+<div class="third col"></div>
+<div class="third col"></div>
+<div class="third col"></div>
+<div class="third col"></div>
+<div class="third col"></div>
+<div class="third col"></div>
+</div>
+
+
+</body>
+</html>
