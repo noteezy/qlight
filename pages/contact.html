@@ -7,6 +7,50 @@
   <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
   <link rel="stylesheet" href="../css/style.css">
 </head>
+
+<style>
+.contact-form{
+  width: 400px;
+  padding: 20px;
+  font-family: serif;
+  margin: 0 auto;
+}
+.contact-form h3{
+  margin: 0;
+  font-size: 21px;
+}
+.contact-form h4{
+  font-weight: 500;
+  margin: 0;
+  margin-top: 5px;
+  font-size: 17px;
+}
+label.contact-form{
+  font-weight: 600;
+  padding: 21px 0 11px 0;
+  display: block;
+}
+.contact-form input{
+  background-color: #f2f2f2;
+  border: 1px solid #e6e6e6;
+  padding: 4px;
+}
+.contact-form textarea{
+  width: 330px;
+  height: 120px;
+  background-color: #f2f2f2;
+  border: 1px solid #e6e6e6;
+  margin-bottom: 15px;
+  resize: none;
+}
+.contact-form button{
+  padding: 10px 15px 10px 15px;
+  border: 0;
+  background-color: rgb(51,51,51);
+  color: white;
+  font-weight: 700;
+}
+</style>
 <body>
 
 <header class="container head">
@@ -32,15 +76,15 @@
   <h3>Looking to get in contact?</h3>
   <h4>Use the form below...</h4>
   <form action="" method="post">
-    <p class="contact-form">Name</p>
+    <label for="input-first-name" class="contact-form">Name</label>
     <input type="text" name="firstName" id="input-first-name"
     placeholder="First">
     <input type="text" name="lastName" id="input-last-name"
     placeholder="Last">
-    <p class="contact-form">Email</p>
+    <label for="input-email" class="contact-form">Email</label>
     <input type="email" name="email" id="input-email"
     placeholder="Email" required>
-    <p class="contact-form">Message</p>
+    <label for="message" class="contact-form">Message</label>
     <textarea name="message" id="message" required></textarea>
     <br>
     <button type="submit">SUBMIT</button>
