@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+  <meta charset="UTF-8">
+  <title>QLight</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+  <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
+
+
+<style>
+body, html{
+    height: 100%;
+}
+body{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+}
+.container{
+    width: 90%;
+    margin: 0 auto;
+}
+.head-logo{
+  text-align: center;
+  float: left;
+}
+.head-logo p{
+  color: silver;
+  font-style: italic;
+  margin-top: -5px;
+  padding: 0;
+}
+.head-logo p>span{
+  color: #fdc422;
+  font-weight: 600;
+}
+.head-logo img{
+  margin-top: 20px;
+}
+.head{
+  border-bottom: 1px solid lightgrey;
+}
+.head nav{
+  display: inline-block;
+  float: right;
+}
+.head ul{
+  font-family: monospace;
+  margin-top: 40px;
+  list-style-type: none;
+  display: inline-block;
+}
+.head ul li{
+  border: 1.5px solid transparent;
+  margin: 0 15px;
+  display: inline-block;
+  padding: 3px 10px;
+  background-color: rgb(9,50,138);
+}
+.head ul li:hover{
+  color: rgb(9,50,138);
+  box-sizing: content-box;
+  border: 1.5px solid #fdc422;
+  background-color: white;
+}
+.head ul li:hover a{
+  color: rgb(9,50,138);
+}
+.head ul li>a{
+  color: white;
+  font-size: 17px;
+  text-decoration: none;
+}
+.head::after{
+  content: " ";
+  display: block;
+  clear: both;
+}
+
+
+
+
+.target-example{
+  margin-top: 20px;
+  border: 1px solid silver;
+  padding: 10px 20px;
+  display: inline-block;
+}
+.target-example img{
+  width: 300px;
+}
+.headers{
+  width: 51px;
+  margin: auto;
+}
+.headers a{
+  color: black;
+}
+.target-example .content-wrap div:target{
+
+}
+
+.target-example .content-wrap div:not(:target){
+  display: none;
+}
+
+</style>
+
+</head>
+<body>
+
+<header class="container head">
+  <div class="head-logo">
+    <a href="../index.html"><img src="../img/logo.png" alt="logo"></a>
+    <p>Light <span>up</span> your life</p>
+  </div>
+  <nav>
+    <ul class="head-nav">
+    <li><a href="../index.html">Text Link</a></li>
+    <li><a href="../index.html">Text Link</a></li>
+    <li><a href="../index.html">Text Link</a></li>
+    <li><a href="../index.html">Text Link</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="container">
+
+    <div class="target-example">
+
+        <div class="content-wrap">
+            <div id="one"><img src="../img/photogal1.jpg" alt="Picture"></div>
+            <div id="two"><img src="../img/photogal2.jpg" alt="Picture"></div>
+            <div id="three"><img src="../img/photogal3.jpg" alt="Picture"></div>
+        </div>
+
+        <div class="headers">
+            <a href="#one"><i class="fa fa-circle" aria-hidden="true"></i></a>
+            <a href="#two"><i class="fa fa-circle" aria-hidden="true"></i></a>
+            <a href="#three"><i class="fa fa-circle" aria-hidden="true"></i></a>
+        </div>
+
+
+    </div>
+
+
+
+</div>
+</body>
+</html>
