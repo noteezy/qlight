@@ -296,6 +296,7 @@ span.blue{
   background-color: #009688;
   border: 0;
   margin: 15px;
+  cursor: pointer;
 }
 .about-charge-block ul li button:hover{
   background-color: black;
