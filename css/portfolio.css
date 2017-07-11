@@ -1,0 +1,443 @@
+body, html{
+    height: 100%;
+}
+body{
+  margin: 0;
+  background-color: #F1F1F1;
+  font-family: 'Raleway', sans-serif;
+}
+/*header menu design*/
+header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: white;
+  box-sizing: border-box;
+  width: 300px;
+  height:100vh;
+  transition: 0.5s ease-out;
+}
+header img{
+  margin-top: 20px;
+  margin-left: 15px;
+  width: 120px;
+  border-radius: 4px;
+}
+header h1{
+  margin-top: 30px;
+  margin-left: 15px;
+  text-transform: uppercase;
+  font-size: 20px;
+}
+header h4{
+  margin-left: 15px;
+  color: #757575;
+  font-size: 15px;
+  font-weight: normal;
+}
+header p{
+  margin: 0;
+  padding: 10px 15px;
+  text-transform: uppercase;
+  font-size: 15px;
+}
+header p:hover{
+  background-color: #ccc;
+}
+header p.head-menu-active a{
+  color: #009688;
+}
+header a{
+  padding: 2px 10px 2px 0;
+  text-decoration: none;
+  color: black;
+}
+header i{
+  text-align: center;
+  padding-right: 15px;
+  width: 20px;
+}
+header .social{
+  margin: 15px 0 0 10px;;
+}
+header .social i{
+  padding-right: 2px;
+}
+header .social i:hover{
+  color: #808080;
+}
+/*main design*/
+.main{
+  width: calc(100% - 300px);
+  margin-left: 300px;
+  transition: 0.5s ease-out;
+}
+.portfolio{
+  padding: 0 0 20px 15px;
+}
+.portfolio-menu{
+  display: none;
+  padding: 15px 0;
+}
+.portfolio-menu i{
+  font-size: 36px;
+}
+.portfolio-menu img{
+  float: right;
+  border-radius: 50%;
+  width: 65px;
+}
+.portfolio-menu img:hover{
+  opacity: 0.6;
+}
+.portfolio h2{
+  font-size: 36px;
+  padding: 10px 5px;
+  margin-top: 20px;
+  margin-bottom: 35px;
+}
+.portfolio ul{
+  padding-left: 15px;
+  display: inline;
+  font-size: 15px;
+}
+.portfolio ul li{
+  display: inline;
+  background-color: white;
+  padding: 10px 20px;
+}
+.portfolio ul li:hover{
+  background-color: #ccc;
+}
+.portfolio ul li i{
+  padding-right: 10px;
+}
+/*.portfolio::after{
+  content: " ";
+  display: block;
+  clear: both;
+  border: 3px solid silver;
+}*/
+.portfolio hr{
+  border: 3px solid silver;
+  margin-top: 25px;
+}
+.pf-block{
+  margin-bottom: 30px;
+}
+.pf-block::after{
+  content: " ";
+  display: block;
+  clear: both;
+}
+.pf-block-cont{
+  float: left;
+  width: 33.333%;
+  box-sizing: border-box;
+  padding: 5px 10px 5px 0;
+}
+.pf-block-cont img{
+  width: 100%;
+}
+.pf-block-cont img:hover{
+  opacity: 0.60;
+}
+.pf-block-cont div{
+  padding: 10px 15px;
+  background-color: white;
+}
+.pf-block-cont h4{
+  margin: 0;
+}
+.pf-block-cont p{
+  line-height: 23px;
+}
+.pf-pagination{
+  text-align: center;
+  margin-bottom: 25px;
+}
+.pf-pagination ul li i{
+  padding-right: 0;
+}
+.pf-pagination ul li{
+  background-color: transparent;
+  padding: 10px 15px;
+}
+.pf-pagination ul li:hover{
+  background-color: black;
+  color: white;
+}
+#about:after{
+  content: " ";
+  display: block;
+  clear: both;
+}
+.about-img:after{
+  content: " ";
+  display: block;
+  clear: both;
+}
+.about-photo{
+  width: 50%;
+  float: left;
+  display: inline-block;
+}
+.about-photo img{
+  padding: 0 10px 0 15px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 40px;
+}
+.about{
+  padding: 0 24px;
+}
+.about-text h3{
+  margin-top: 0;
+  font-size: 20px;
+}
+.about-text p{
+  line-height: 23px;
+  margin-bottom: 45px;
+}
+.about-skill{
+  margin-bottom: 40px;
+}
+.about-skill h4{
+  font-weight: 500;
+  font-size: 20px;
+}
+.about-grey{
+  width: 100%;
+  height: 40px;
+  background-color: #BBBBBB;
+}
+.about-black{
+  text-align: center;
+  background-color: #616161;
+  height: 100%;
+  line-height: 40px;
+  color: white;
+}
+.about-w-95{
+  width: 95%;
+}
+.about-w-85{
+  width: 85%;
+}
+.about-w-80{
+  width: 80%;
+}
+.about a{
+  text-decoration: none;
+  color: white;
+  background-color: #616161;
+  padding: 10px 15px;
+  font-size: 15px;
+}
+.about a:hover{
+  background-color: #CCCCCC;
+  color: black;
+}
+.about a i{
+  padding-right: 15px;
+}
+.about-charge{
+  margin-top: 70px;
+}
+.about-charge-block{
+  opacity: 0.6;
+  float: left;
+  box-sizing: border-box;
+  width: 33.333%;
+  padding: 0 10px;
+  text-align: center;
+}
+.about-charge-block:hover{
+  opacity: 1;
+}
+.about-charge-block span{
+  color: white;
+  width: 100%;
+  display: inline-block;
+  padding: 32px 16px;
+  box-sizing: border-box;
+  font-size: 24px;
+}
+span.black{
+  background-color: black;
+}
+span.blue{
+  background-color: #009688;
+}
+.about-charge-block ul{
+  list-style-type: none;
+  border: 1px solid silver;
+  padding-left: 0;
+  margin: 0;
+}
+.about-charge-block ul li{
+  font-size: 15px;
+  background-color: white;
+  padding: 10px;
+  border-bottom: 1px solid silver;
+}
+.about-charge-block ul li h3{
+  font-weight: 400;
+  font-size: 30px;
+  margin-bottom: 0;
+}
+.about-charge-block ul li:last-child{
+  background-color: #f1f1f1;
+}
+.about-charge-block ul li button{
+  font-size: 15px;
+  padding: 12px 24px;
+  color: white;
+  background-color: #009688;
+  border: 0;
+  margin: 15px;
+}
+.about-charge-block ul li button:hover{
+  background-color: black;
+}
+.contact{
+  padding: 0 24px;
+  margin-top: 45px;
+  background-color: #BBBBBB;
+}
+.contact-info h3{
+  padding: 15px 0;
+}
+.contact-info hr{
+  color: white;
+}
+.contact-info-block{
+  text-align: center;
+  background-color: #616161;
+  color: white;
+  width: 33.333%;
+  float: left;
+  box-sizing: border-box;
+  margin-bottom: 35px;
+}
+.contact-info-block i{
+  font-size: 36px;
+}
+div.blue{
+  background-color: #009688;
+}
+.contact-info label{
+  display: block;
+}
+.contact-info input{
+  width: calc(100% - 24px);
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid transparent;
+}
+.contact-info input:focus{
+  outline: none;
+  border: 1px solid black;
+}
+.contact-info button{
+  font-size: 15px;
+  color: white;
+  background-color: black;
+  border: 0;
+  padding: 8px 16px;
+  margin-bottom: 30px;
+}
+.contact-info button i{
+  padding-right: 10px;
+}
+.contact-info button:hover{
+  background-color: #ccc;
+}
+footer{
+  background-color: #616161;
+}
+footer::after{
+  content: " ";
+  display: block;
+  clear: both;
+}
+.footer-block{
+  color: white;
+  padding: 20px 15px 20px;
+  width: 33.333%;
+  box-sizing: border-box;
+  float: left;
+}
+.footer-block img{
+  padding-right: 15px;
+  float: left;
+  width: 50px;
+}
+.footer-block hr{
+  border: 0.5px solid white;
+  margin: 0;
+}
+.fot-hover{
+  padding: 8px 16px;
+}
+div.fot-hover:hover{
+  background-color: #ccc;
+}
+.fot-hover p{
+  padding: 0;
+  margin: 0;
+  padding-bottom: 5px;
+}
+.fot-hover::after{
+  content: " ";
+  display: block;
+  clear: both;
+}
+.footer-block span{
+  font-size: 15px;
+  display: inline-block;
+  margin-bottom: 15px;
+  background: #ccc;
+  color: black;
+  padding: 2px 4px;
+}
+@media only screen and (max-width : 993px) {
+  header{
+    margin-left: -300px;
+    transition: 0.5s ease-out;
+  }
+  .main{
+    width: 100%;
+    margin-left: 0;
+    transition: 0.5s ease-out;
+  }
+  .portfolio-menu{
+    display: block;
+  }
+
+}
+@media only screen and (max-width : 600px) {
+  .pf-block-cont{
+    width: 100%;
+  }
+  .about-photo{
+    width: 100%;
+  }
+  .about-photo img{
+    margin-bottom: 0;
+  }
+  .about-charge-block{
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .contact-info-block{
+    width: 100%;
+    margin-bottom: 0;
+  }
+  div.contact-info-block:last-of-type{
+    margin-bottom: 35px;
+  }
+  .footer-block{
+    width: 100%;
+  }
+}
