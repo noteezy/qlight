@@ -15,7 +15,7 @@ header{
   box-sizing: border-box;
   width: 300px;
   height:100vh;
-  transition: 0.5s ease-out;
+  margin-left: 0;
 }
 header img{
   margin-top: 20px;
@@ -70,7 +70,6 @@ header .social i:hover{
 .main{
   width: calc(100% - 300px);
   margin-left: 300px;
-  transition: 0.5s ease-out;
 }
 .portfolio{
   padding: 0 0 20px 15px;
@@ -405,12 +404,11 @@ div.fot-hover:hover{
 @media only screen and (max-width : 993px) {
   header{
     margin-left: -300px;
-    transition: 0.5s ease-out;
+    transition: margin-left 0.5s ease-out;
   }
   .main{
     width: 100%;
     margin-left: 0;
-    transition: 0.5s ease-out;
   }
   .portfolio-menu{
     display: block;
