@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+  <meta charset="UTF-8">
+  <title>QLight</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<h1>My JS code</h1>
+
+<script type="text/javascript">
+var i = 0;
+var j = 0;
+var k = 8;
+var row= 0;
+var str = "";
+for(j=0; j<k; j++){
+  for(i=0; i<k; i++){
+    if(row % 2){
+      str=str+" ";
+    }else{
+      str=str+"#";
+    }
+    row++;
+  }
+  row=j+3;
+  console.log(str);
+  str="";
+}
+</script>
+
+</body>
+</html>
