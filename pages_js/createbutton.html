@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Button</title>
+</head>
+<body>
+
+
+
+    <script>
+      var button = document.createElement("a");
+      style="-moz-border-radius: 8px;    -webkit-border-radius: 8px; display: block;"
+      button.setAttribute("style", style);
+      button.setAttribute("class", "button");
+      button.setAttribute("href", "/");
+      button.innerHTML = "Натисни!"
+      button.style.border = "2px groove green";
+      button.style.borderRadius = "8px";
+      button.style.height = "30px";
+      button.style.width = "100px";
+      button.style.textDecoration = "none";
+      button.style.width = "100px";
+      button.style.lineHeight = "30px";
+      button.style.textAlign = "center";
+      button.style.color = "red";
+      button.style.fontWeight = "bold"
+      document.body.appendChild(button);
+    </script>
+</body>
+</html>

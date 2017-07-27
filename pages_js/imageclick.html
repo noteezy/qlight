@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gallery</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="panel panel-primary text-center">
+            <div class="panel-heading">
+                <h1>Gallery</h1>
+            </div>
+    <div class="panel-body">
+        <div>
+          <a href="#" id="img1" onclick="changeImg('photogal1.jpg')">Image 1</a>
+          <a href="#" id="img2" onclick="changeImg('photogal2.jpg')">Image 2</a>
+          <a href="#" id="img3" onclick="changeImg('photogal3.jpg')">Image 3</a>
+        </div>
+                <br>
+                <div id="pic">
+                    <img id="pic1" src="../img/photogal1.jpg">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+
+function changeImg(imgName){
+  var img = document.getElementById('pic1');
+  var link = "../img/" + imgName;
+  console.log(link);
+  img.setAttribute("src", link);
+}
+
+    </script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

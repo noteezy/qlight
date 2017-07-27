@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="jumbotron">
+      <h3>To change title: enter text then click button</h3>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Введіть назву..." id="my-input-text">
+            <span class="input-group-btn">
+              <button class="btn btn-success" onclick="changeTitle()">Змінити назву вкладки</button>
+            </span>
+
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="well">
+          Назву змінено <span class="badge" id="counter">0</span> раз!
+        </div>
+      </div>
+  </div>
+
+<script>
+var number = 0;
+function changeTitle(){
+  var title = document.getElementById("my-input-text").value;
+  // number = parseInt(document.getElementById("counter").innerHTML);
+  number++;
+  document.getElementById("counter").textContent = number;
+  document.getElementById("my-input-text").value = "";
+  document.title = title;
+}
+</script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

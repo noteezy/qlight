@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body onload="languageChange()">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+
+                <div class="well" style="margin-top:15px">Selected: <span id="selected-output">-</span></div>
+
+                <div class="form-group">
+                    <label class="control-label" for="select-lang">Lang</label>
+                    <select onchange="languageChange()" class="form-control" id="select-lang">
+                        <option value="ua">ua</option>
+                        <option value="en">en</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="select-month">Month</label>
+                    <select onchange="languageChange()" class="form-control" id="select-month">
+                        <option value="0">01</option>
+                        <option value="1">02</option>
+                        <option value="2">03</option>
+                        <option value="3">04</option>
+                        <option value="4">05</option>
+                        <option value="5">06</option>
+                        <option value="6">07</option>
+                        <option value="7">08</option>
+                        <option value="8">09</option>
+                        <option value="9">10</option>
+                        <option value="10">11</option>
+                        <option value="11">12</option>
+                    </select>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+
+			var uaMonth = ['Січень', 'Лютий', 'Березень', 'Квітень', 'Травень', 'Червень', 'Липень', 'Серпень', 'Вересень', 'Жовтень', 'Листопад', 'Грудень'];
+			var enMonth = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+      function languageChange(){
+        var lang = document.getElementById("select-lang").value;
+        var month = document.getElementById("select-month").value;
+
+        if(lang=="ua") document.getElementById("selected-output").innerHTML = lang + " - " + uaMonth[month];
+        if(lang=="en") document.getElementById("selected-output").innerHTML = lang + " - " + enMonth[month];
+      }
+
+    </script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

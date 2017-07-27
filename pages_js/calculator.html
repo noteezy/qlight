@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Calculator</title>
+
+
+    <style>
+        .calculator {
+            width: 250px;
+            height: 350px;
+            border: 2px solid black;
+            margin: 100px auto 0;
+            text-align: center;
+            background-color: grey;
+            box-shadow: 0 0 30px grey;
+            border-radius: 4px;
+        }
+
+        .calculator__form {
+            height: 100%;
+            padding: 20px;
+        }
+
+        .calculator__row {
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .calculator__display {
+            margin: 0 0 20px;
+            width: 100%;
+            border: 1px solid darkslateblue;
+            padding: 4px 2px;
+            text-align: right;
+            font: 700 16px/1 Arial, sans-serif;
+            color: darkslateblue;
+            background-color: whitesmoke;
+        }
+
+        .calculator__key {
+            width: 41px;
+            height: 35px;
+            cursor: pointer;
+            border: none;
+            transition: all .2s;
+            color: blue;
+            text-transform: uppercase;
+        }
+
+        .calculator__key--equal {
+            width: 98px;
+        }
+
+        .calculator__key:hover {
+            background-color: yellow;
+            font-weight: 700;
+        }
+
+        .calculator__key::-moz-focus-inner {
+            border: none
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="calculator">
+        <form class="calculator__form">
+
+            <div class="calculator__row">
+                <input class="calculator__display" id="display" type="text" disabled>
+            </div>
+
+            <div class="calculator__row">
+                <input type="button" value="c" class="calculator__key calculator__clear">
+                <input type="button" value="%" class="calculator__key calculator__backspace">
+                <input type="button" value="^" class="calculator__key calculator__power">
+                <input type="button" value="+" class="calculator__key calculator__button">
+            </div>
+
+            <div class="calculator__row">
+                <input type="button" value="9" class="calculator__key calculator__button">
+                <input type="button" value="8" class="calculator__key calculator__button">
+                <input type="button" value="7" class="calculator__key calculator__button">
+                <input type="button" value="-" class="calculator__key calculator__button">
+            </div>
+
+            <div class="calculator__row">
+                <input type="button" value="6" class="calculator__key calculator__button">
+                <input type="button" value="5" class="calculator__key calculator__button">
+                <input type="button" value="4" class="calculator__key calculator__button">
+                <input type="button" value="*" class="calculator__key calculator__button">
+            </div>
+
+
+            <div class="calculator__row">
+                <input type="button" value="3" class="calculator__key calculator__button">
+                <input type="button" value="2" class="calculator__key calculator__button">
+                <input type="button" value="1" class="calculator__key calculator__button">
+                <input type="button" value="/" class="calculator__key calculator__button">
+            </div>
+
+
+            <div class="calculator__row">
+                <input type="button" value="0" class="calculator__key calculator__button">
+                <input type="button" value="." class="calculator__key calculator__button">
+                <input type="button" value="=" class="calculator__key calculator__key--equal">
+            </div>
+
+        </form>
+    </div>
+
+    <script>
+
+        //
+
+    </script>
+
+</body>
+</html>
