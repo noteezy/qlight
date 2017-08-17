@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        form{
+            margin: 30px 0;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+                <form>
+                    <div class="form-group">
+                        <label for="exampleURLInput">Go to URL:</label>
+                        <input type="url" class="form-control" id="exampleURLInput" placeholder="URL">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-go-to" id="openWindow">Go</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        (function(){
+        	'use strict';
+          var button = document.getElementById('openWindow');
+
+        button.addEventListener('click', function(e) {
+          e.preventDefault();
+          var link = document.getElementById('exampleURLInput').value;
+          //var value = input && input.value;
+          //window.location = link; (same page);
+		    	window.open(link);
+        });
+
+        })();
+
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

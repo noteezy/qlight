@@ -79,9 +79,39 @@
         </div>
     </div>
 
-
     <script>
 
+    var buttons = document.querySelectorAll('.accordion');
+    for(var i = 0; i < buttons.length; i++){
+      buttons[i].onclick = function(){
+
+      for(var j = 0; j < buttons.length; j++){
+          console.log('DELETE0');
+        if(buttons[j] === this) continue;
+        if(buttons[j].classList.contains('active')){
+          buttons[j].classList.remove('active');
+          console.log('DELETE1');
+          buttons[j].nextElementSibling.style.maxHeight = 0;
+        }
+      }
+
+        this.classList.toggle('active');
+        var panel = this.nextElementSibling;
+
+        if(this.classList.contains('active')){
+          panel.style.maxHeight = panel.scrollHeight + 'px';
+        } else {
+          panel.style.maxHeight = 0;
+        }
+
+      }
+
+    }
+
+
+
+      // var btn = document.getElementById("").value;
+      // el.classList.add("foo");
         // Добавити або видалити 'active' клас у кнопки
         // Змінити maxHeight у .panel
 

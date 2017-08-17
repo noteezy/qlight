@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shop</title>
+
+    <link rel="stylesheet prefetch" href="css/reset.css">
+    <link rel="stylesheet prefetch" href="css/main.css">
+
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <script src="js/jquery.min.js"></script>
+
+    <script>
+  $(function(){
+      var cartTrigger = $('#cart-trigger'),
+          cart = $('#cart'),
+          shadowLayer = $('#shadow-layer');
+          body = $('body'),
+          hamburgerTrigger = $('#hamburger-menu'),
+          menu = $('#main-nav'),
+          mobileWidth = 900;
+
+          var products = [
+            		{
+            			"name": "Bow Tie",
+            			"description":  "These coasters roll all of the greatest qualities into one: class, leather, and octocats.",
+            			"price": 18,
+            			"oldprice": 20,
+            			"picture": "images/2.jpg"
+            		},
+            		{
+            			"name": "Bow Tie 2",
+            			"description":  "These coasters roll all of the greatest qualities into one: class, leather, and octocats.",
+            			"price": 38,
+            			"oldprice": 40,
+            			"picture": "images/5.jpg"
+            		},
+            		{
+            			"name": "Bow Tie 3",
+            			"description":  "These coasters roll all of the greatest qualities into one: class, leather, and octocats.",
+            			"price": 48,
+            			"oldprice": 50,
+            			"picture": "images/1.jpg"
+            		},
+            		{
+            			"name": "Bow Tie 4",
+            			"description":  "These coasters roll all of the greatest qualities into one: class, leather, and octocats.",
+            			"price": 58,
+            			"oldprice": 60,
+            			"picture": "images/3.jpg"
+            		},
+            		{
+            			"name": "Bow Tie 5",
+            			"description":  "These coasters roll all of the greatest qualities into one: class, leather, and octocats.",
+            			"price": 68,
+            			"oldprice": 70,
+            			"picture": "images/4.jpg"
+            		}
+            	];
+
+
+          cartTrigger.on('click', function(){
+            menu.removeClass('speed-in');
+            togglePanel(cart, shadowLayer);
+          });
+
+          hamburgerTrigger.on('click', function(){
+            cart.removeClass('speed-in');
+            togglePanel(menu, shadowLayer);
+          });
+
+          shadowLayer.on('click', function(){
+            cart.removeClass('speed-in');
+            menu.removeClass('speed-in');
+            shadowLayer.removeClass('is-visible');
+            body.removeClass('overflow-hidden');
+          });
+
+        $(window).on('resize', function(){
+          moveNavigation();
+          if(window.innerWidth > mobileWidth && menu.hasClass('speed-in')){
+            togglePanel(menu, shadowLayer);
+          }
+        });
+
+        function moveNavigation(){
+          menu.detach();
+          if(window.innerWidth >= mobileWidth){
+            menu.appendTo('header');
+          }else{
+            menu.insertAfter('header');
+          }
+        }
+
+          function togglePanel(panel, background){
+            if(panel.hasClass('speed-in')){
+              panel.removeClass('speed-in');
+              background.removeClass('is-visible');
+              body.removeClass('overflow-hidden');
+            }else{
+              panel.addClass('speed-in');
+              background.addClass('is-visible');
+              body.addClass('overflow-hidden');
+            }
+          }
+
+        var productTemplate = $('#productTemplate');
+        var templateHtml = productTemplate.html();
+        var templateElem = $(templateHtml);
+
+      products.forEach(function(product, index){
+        var templateElem = $(templateHtml);
+        templateElem.find('img.thumb')
+          .attr('src', product.picture)
+          .attr('alt', product.name);
+        templateElem.find('h3').text(product.name);
+        templateElem.find('p').text(product.description);
+        templateElem.find('s').text('$' + product.oldprice);
+        templateElem.find('.price').append('$' + product.price);
+
+      templateElem.data('id', index);
+      templateElem.data('name', product.name);
+      templateElem.data('price', product.price);
+      templateElem.data('image', product.picture);
+
+
+        $('<li></li>').append(templateElem).appendTo('#gallery-items');
+      });
+
+      $('li.drop-down, #close-menu').on('click', function(){
+        $('.mega-menu').toggleClass('speed-in');
+      });
+
+
+
+      var searchButton = $('.search-btn'),
+          searchSlide = $('.search-slide'),
+          searchTxt = $('.search-slide input[type="text"]'),
+          searchClose = $('.search-close'),
+          searchSpeed = 300;
+
+      searchButton.on('click', function(){
+        searchSlide.animate({width: '15em'}, searchSpeed);
+        searchTxt.focus();
+      });
+
+      searchClose.on('click', function(){
+        searchSlide.animate({width: '0'}, searchSpeed);
+      });
+
+      $('.link').on('click', function(){
+        $(this).next().slideToggle();
+        $(this).parent().toggleClass('open');
+      });
+
+
+
+      var bthGoTop =   $('.go-top');
+      $(window).on('scroll', function(){
+        if($(window).scrollTop() >= 500){
+          bthGoTop.fadeIn();
+        }else{
+          bthGoTop.fadeOut();
+        }
+      });
+
+      $('.go-top').on('click', function(){
+        $('body, html').animate({
+          scrollTop: 0
+        }, 500)
+      });
+
+
+    $('.product i').on('click', function(){
+      var cartList = $('.cart-items'),
+          item = $(this).parent('.product'),
+          productTemplate = $($('#cartItem').html()),
+          currentItems = cartList.children();
+
+      var matched = currentItems.filter(function(){
+          return $(this).data('id') === item.data('id');
+      });
+
+      if (matched.length){
+        var qty = +matched.find('.qty').val() + 1;
+        matched.find('.qty').val(qty);
+        calculateSubtotal(matched);
+      }else{
+        productTemplate.find('span')
+          .css('background-image', 'url('+ item.data('image') +')');
+        productTemplate.find('span').after('&nbsp;' + item.data('name'));
+        productTemplate.find('.price').text('$' + item.data('price'));
+        productTemplate.data('id', item.data('id'));
+        cartList.append(productTemplate);
+      }
+    calculateCounter();
+    calculateCart();
+    });
+
+    function calculateCounter(){
+      var quantity = 0,
+          cartQuantity = $('span.cart-quantity'),
+          items = cart.find('.cart-items').children();
+          items.each(function(index, item){
+            quantity += +$(item).find('.qty').val();
+          });
+          if(quantity){
+            cartQuantity.removeClass('empty');
+          }else{
+            cartQuantity.addClass('empty');
+          }
+            cartQuantity.text(quantity);
+    }
+
+
+    function calculateSubtotal(item){
+      var quantity = item.find('.qty').val(),
+          price = item.data('price'),
+          subtotal = quantity * price;
+
+      $(item).find('.price').text('$' + subtotal);
+      $(item).data('subtotal', subtotal);
+    }
+
+    function calculateCart(){
+      var subtotal = 0,
+          items = cart.find('.cart-items').children();
+
+          items.each(function(index, item){
+            subtotal += $(item).data('subtotal');
+          });
+
+          $('.subtotalTotal').text('$' + subtotal);
+          $('.finalTotal').text('$' + subtotal)
+    }
+
+
+
+
+
+
+  });
+    </script>
+
+
+    <script id="productTemplate" type="text/template">
+      <figure class="product">
+        <img class="thumb" />
+        <figcaption>
+            <h3></h3>
+            <p></p>
+            <div class="price">
+                <s></s>
+            </div>
+        </figcaption><i><img src="images/cart.svg" /></i>
+        <a href="#"></a>
+      </figure>
+    </script>
+
+    <!-- Cart Product Template -->
+    <script id='cartItem' type='text/template'>
+      <li class="cart-product">
+        <span><input class="qty" value="1"></span>
+        <div class="price"></div>
+        <a href="#" class="item-remove img-replace">Remove</a>
+      </li>
+    </script>
+
+
+</head>
+<body>
+
+  <header>
+      <div class="search">
+          <input type="submit" value="&#xf002;" class="search-btn fa ib-m">
+          <div class="search-slide ib-m">
+              <input type="text" placeholder="Enter your search" class="ib-m">
+              <div class="search-close ib-m"><i class="fa fa-times"></i></div>
+          </div>
+      </div>
+      <div id="hamburger-menu"><a class="img-replace" href="#">Menu</a></div>
+      <div id="cart-trigger">
+    <a class="cart-link" href="#">
+        <span class="cart-text fa fa-shopping-cart">
+            <span class="cart-quantity empty">0</span>
+        </span>
+    </a>
+</div>
+
+      <div class="mega-menu fadeIn animated" id="mega_menu">
+          <div class="mm-3column">
+              <div class="left-images">
+                  <img  src="images/4.jpg">
+                  <p><a href="#">Most Popular Styles </a></p>
+              </div>
+          </div>
+          <div id="close-menu"><a class="img-replace" href="#">Menu</a></div>
+          <div class="mm-3column">
+              <div class="categories-list">
+                  <span class="link"><i class="fa fa-mobile"></i>&nbsp;Computer</span>
+                  <ul class="default submenu">
+                      <li><a href="#">Desktops</a></li>
+                      <li><a href="#">Laptops</a></li>
+                      <li><a href="#">Tablets</a></li>
+                      <li><a href="#">Monitors</a></li>
+                      <li><a href="#">Networking Printers</a></li>
+                      <li><a href="#">Scanners</a></li>
+                      <li><a href="#">Jumpers & Cardigans</a></li>
+                  </ul>
+              </div>
+          </div>
+          <div class="mm-3column">
+              <div class="categories-list">
+                  <span class="link"><i class="fa fa-mobile"></i>&nbsp;TV & Video</span>
+                  <ul class="default submenu">
+                      <li><a href="#">LED TVs</a></li>
+                      <li><a href="#">Plasma TVs</a></li>
+                      <li><a href="#">3D TVs</a></li>
+                      <li><a href="#">DVD & Blu-ray Players</a></li>
+                      <li><a href="#">Home Theater Systems</a></li>
+                      <li><a href="#">Cell Phones</a></li>
+                      <li><a href="#">Apple iPhone</a></li>
+                  </ul>
+              </div>
+          </div>
+          <div class="mm-3column">
+              <div class="categories-list">
+                  <span class="link"><i class="fa fa-mobile"></i>&nbsp;Car Electronics</span>
+                  <ul class="default submenu">
+                      <li><a href="#">GPS & Navigation</a></li>
+                      <li><a href="#">In-Dash Stereos</a></li>
+                      <li><a href="#">Speakers</a></li>
+                      <li><a href="#">Subwoofers</a></li>
+                      <li><a href="#">Amplifiers</a></li>
+                      <li><a href="#">MP3 Players</a></li>
+                      <li><a href="#">iPods</a></li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </header>
+
+    <nav id="main-nav">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a class="current" href="#">Shop</a></li>
+            <li class="drop-down"><a href="#">Catalog</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <ul id="gallery-items" class="container">
+
+        </ul> <!-- cd-gallery-items -->
+    </main>
+
+    <div id="shadow-layer"></div>
+
+    <div id="cart">
+        <h2>Cart</h2>
+        <ul class="cart-items">
+
+        </ul> <!-- cd-cart-items -->
+
+        <div class="cart-total">
+    <p>Subtotal <span class="subtotalTotal">$0.00</span></p>
+    <p>Tax <span class="taxes">$0.00</span></p>
+    <p>Shipping <span class="shipping">$0.00</span></p>
+    <p>Total <span class="finalTotal">$0.00</span></p>
+</div> <!-- cd-cart-total -->
+
+        <a href="#" class="checkout-btn">Checkout</a>
+
+        <p class="go-to-cart"><a href="#">Go to cart page</a></p>
+    </div> <!-- cd-cart -->
+
+ <div class='go-top'><i class='fa fa-chevron-up'></i></div>
+
+</body>
+</html>

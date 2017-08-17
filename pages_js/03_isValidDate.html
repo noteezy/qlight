@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>isValidDate</title>
+
+    <style>
+        form{
+            margin: 30px 0;
+        }
+        .alert.valid-date-alert{
+            margin: 10px 0;
+            padding: 5px 15px;
+            display: none;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+                <form action="some-pahe.php">
+                    <div class="form-group">
+                        <label for="exampleDateInput">Date:</label>
+                        <input type="text" class="form-control" id="exampleDateInput" placeholder="DD-MM-YYYY">
+                        <div class="alert alert-danger valid-date-alert" role="alert">Date is not valid</div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-date" id="dateValid">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+
+        (function() {
+        	'use strict';
+
+            var reg = /^\d{1,2}-\d{1,2}-\d{4}$/;
+
+
+            var button = document.getElementById('dateValid');
+            button.addEventListener('click', function(e) {
+              e.preventDefault();
+              var date = document.getElementById('exampleDateInput').value;
+              if(!date.match(reg)){
+                // e.preventDefault();
+
+                //var form = this.closet('form');
+                //form.submit();
+
+
+
+                var div = document.querySelector('.valid-date-alert');
+                div.style.display = "block";
+              }else{
+                var div = document.querySelector('.valid-date-alert');
+                div.style.display = "none";
+              }
+            } )
+
+        	//
+
+        })();
+
+
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

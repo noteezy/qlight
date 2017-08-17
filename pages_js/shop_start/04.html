@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shop</title>
+
+    <link rel="stylesheet prefetch" href="css/reset.css">
+    <link rel="stylesheet prefetch" href="css/main.css">
+
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <script src="js/jquery.min.js"></script>
+
+    <script>
+  $(function(){
+      var cartTrigger = $('#cart-trigger'),
+          cart = $('#cart'),
+          shadowLayer = $('#shadow-layer');
+          body = $('body'),
+          hamburgerTrigger = $('#hamburger-menu'),
+          menu = $('#main-nav'),
+          mobileWidth = 900;
+
+          var products = [
+          		{
+          			"name": "Bow Tie",
+          			"description":  "These coasters roll all of the greatest qualities into one: class, leather, and octocats.",
+          			"price": 18,
+          			"oldprice": 20,
+          			"picture": "images/2.jpg"
+          		},
+          		{
+          			"name": "Bow Tie 2",
+          			"description":  "These coasters roll all of the greatest qualities into one: class, leather, and octocats.",
+          			"price": 38,
+          			"oldprice": 40,
+          			"picture": "images/5.jpg"
+          		}
+	          ];
+
+
+          cartTrigger.on('click', function(){
+            menu.removeClass('speed-in');
+            togglePanel(cart, shadowLayer);
+          });
+
+          hamburgerTrigger.on('click', function(){
+            cart.removeClass('speed-in');
+            togglePanel(menu, shadowLayer);
+          });
+
+          shadowLayer.on('click', function(){
+            cart.removeClass('speed-in');
+            menu.removeClass('speed-in');
+            shadowLayer.removeClass('is-visible');
+            body.removeClass('overflow-hidden');
+          });
+
+        $(window).on('resize', function(){
+          moveNavigation();
+          if(window.innerWidth > mobileWidth && menu.hasClass('speed-in')){
+            togglePanel(menu, shadowLayer);
+          }
+        });
+
+        function moveNavigation(){
+          menu.detach();
+          if(window.innerWidth >= mobileWidth){
+            menu.appendTo('header');
+          }else{
+            menu.insertAfter('header');
+          }
+        }
+
+          function togglePanel(panel, background){
+            if(panel.hasClass('speed-in')){
+              panel.removeClass('speed-in');
+              background.removeClass('is-visible');
+              body.removeClass('overflow-hidden');
+            }else{
+              panel.addClass('speed-in');
+              background.addClass('is-visible');
+              body.addClass('overflow-hidden');
+            }
+          }
+
+        var productTemplate = $('#productTemplate');
+        var templateHtml = productTemplate.html();
+        var templateElem = $(templateHtml);
+
+      products.forEach(function(product){
+        var templateElem = $(templateHtml);
+        templateElem.find('img.thumb')
+          .attr('src', product.picture)
+          .attr('alt', product.name);
+        templateElem.find('h3').text(product.name);
+        templateElem.find('p').text(product.description);
+        templateElem.find('s').text('$' + product.oldprice);
+        templateElem.find('.price').append('$' + product.price);
+        $('<li></li>').append(templateElem).appendTo('#gallery-items');
+      });
+
+
+
+
+        })
+    </script>
+
+
+    <script id="productTemplate" type="text/template">
+      <figure class="product">
+        <img class="thumb" />
+        <figcaption>
+            <h3></h3>
+            <p></p>
+            <div class="price">
+                <s></s>
+            </div>
+        </figcaption><i><img src="images/cart.svg" /></i>
+        <a href="#"></a>
+      </figure>
+    </script>
+
+
+
+</head>
+<body>
+
+    <header>
+        <div id="logo"><img src="images/logo.svg" alt="Homepage"></div>
+        <div id="hamburger-menu"><a class="img-replace" href="#">Menu</a></div>
+        <div id="cart-trigger"><a class="img-replace" href="#">Cart</a></div>
+    </header>
+
+    <nav id="main-nav">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a class="current" href="#">Shop</a></li>
+            <li><a href="#">Catalog</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <ul id="gallery-items" class="container">
+            <li>
+                <figure class="product">
+                    <img src="images/2.jpg" alt="sample57" class="thumb" />
+                    <figcaption>
+                        <h3>Pudol Doux</h3>
+                        <p>All this modern technology just makes people try to do everything at once.</p>
+                        <div class="price">
+                            <s>$24.00</s>$19.00
+                        </div>
+                    </figcaption><i><img src="images/cart.svg" /></i>
+                    <a href="#"></a>
+                </figure>
+
+            </li>
+
+            <li>
+                <figure class="product">
+                    <img src="images/2.jpg" alt="sample57" class="thumb" />
+                    <figcaption>
+                        <h3>Pudol Doux</h3>
+                        <p>All this modern technology just makes people try to do everything at once.</p>
+                        <div class="price">
+                            <s>$24.00</s>$19.00
+                        </div>
+                    </figcaption><i><img src="images/cart.svg" /></i>
+                    <a href="#"></a>
+                </figure>
+            </li>
+
+            <li>
+                <figure class="product">
+                    <img src="images/2.jpg" alt="sample57" class="thumb" />
+                    <figcaption>
+                        <h3>Pudol Doux</h3>
+                        <p>All this modern technology just makes people try to do everything at once.</p>
+                        <div class="price">
+                            <s>$24.00</s>$19.00
+                        </div>
+                    </figcaption><i><img src="images/cart.svg" /></i>
+                    <a href="#"></a>
+                </figure>
+            </li>
+
+            <li>
+                <figure class="product">
+                    <img src="images/2.jpg" alt="sample57" class="thumb" />
+                    <figcaption>
+                        <h3>Pudol Doux</h3>
+                        <p>All this modern technology just makes people try to do everything at once.</p>
+                        <div class="price">
+                            <s>$24.00</s>$19.00
+                        </div>
+                    </figcaption><i><img src="images/cart.svg" /></i>
+                    <a href="#"></a>
+                </figure>
+            </li>
+
+            <li>
+                <figure class="product">
+                    <img src="images/2.jpg" alt="sample57" class="thumb" />
+                    <figcaption>
+                        <h3>Pudol Doux</h3>
+                        <p>All this modern technology just makes people try to do everything at once.</p>
+                        <div class="price">
+                            <s>$24.00</s>$19.00
+                        </div>
+                    </figcaption><i><img src="images/cart.svg" /></i>
+                    <a href="#"></a>
+                </figure>
+            </li>
+
+            <li>
+                <figure class="product">
+                    <img src="images/2.jpg" alt="sample57" class="thumb" />
+                    <figcaption>
+                        <h3>Pudol Doux</h3>
+                        <p>All this modern technology just makes people try to do everything at once.</p>
+                        <div class="price">
+                            <s>$24.00</s>$19.00
+                        </div>
+                        <a href="#"></a>
+                    </figcaption><i><img src="images/cart.svg" /></i>
+                </figure>
+            </li>
+
+            <li>
+                <figure class="product">
+                    <img src="images/2.jpg" alt="sample57" class="thumb" />
+                    <figcaption>
+                        <h3>Pudol Doux</h3>
+                        <p>All this modern technology just makes people try to do everything at once.</p>
+                        <div class="price">
+                            <s>$24.00</s>$19.00
+                        </div>
+                    </figcaption><i><img src="images/cart.svg" /></i>
+                    <a href="#"></a>
+                </figure>
+            </li>
+
+            <li>
+                <figure class="product">
+                    <img src="images/2.jpg" alt="sample57" class="thumb" />
+                    <figcaption>
+                        <h3>Pudol Doux</h3>
+                        <p>All this modern technology just makes people try to do everything at once.</p>
+                        <div class="price">
+                            <s>$24.00</s>$19.00
+                        </div>
+                    </figcaption><i><img src="images/cart.svg" /></i>
+                    <a href="#"></a>
+                </figure>
+            </li>
+
+            <li>
+                <figure class="product">
+                    <img src="images/2.jpg" alt="sample57" class="thumb" />
+                    <figcaption>
+                        <h3>Pudol Doux</h3>
+                        <p>All this modern technology just makes people try to do everything at once.</p>
+                        <div class="price">
+                            <s>$24.00</s>$19.00
+                        </div>
+                    </figcaption><i><img src="images/cart.svg" /></i>
+                    <a href="#"></a>
+                </figure>
+            </li>
+        </ul> <!-- cd-gallery-items -->
+    </main>
+
+    <div id="shadow-layer"></div>
+
+    <div id="cart">
+        <h2>Cart</h2>
+        <ul class="cart-items">
+            <li>
+                <span class="qty">1x</span> Product Name
+                <div class="price">$9.99</div>
+                <a href="#0" class="item-remove img-replace">Remove</a>
+            </li>
+
+            <li>
+                <span class="qty">2x</span> Product Name
+                <div class="price">$19.98</div>
+                <a href="#" class="item-remove img-replace">Remove</a>
+            </li>
+
+            <li>
+                <span class="qty">1x</span> Product Name
+                <div class="price">$9.99</div>
+                <a href="#" class="item-remove img-replace">Remove</a>
+            </li>
+        </ul> <!-- cd-cart-items -->
+
+        <div class="cart-total">
+            <p>Total <span>$39.96</span></p>
+        </div> <!-- cd-cart-total -->
+
+        <a href="#" class="checkout-btn">Checkout</a>
+
+        <p class="go-to-cart"><a href="#">Go to cart page</a></p>
+    </div> <!-- cd-cart -->
+
+</body>
+</html>

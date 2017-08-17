@@ -65,7 +65,6 @@
 </head>
 <body>
 
-
     <div class="calculator">
         <form class="calculator__form">
 
@@ -113,6 +112,10 @@
     </div>
 
     <script>
+      document.getElementsByTagName('input').onclick = function(){
+        var value = getElementsByTagName('input').value;
+        console.log(value);
+      };
 
         //
 

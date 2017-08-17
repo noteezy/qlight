@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fix block scope</title>
+</head>
+<body>
+
+    <script>
+
+		var arr = [];
+		for (var i = 0; i < 10; i++) {
+			arr.push(function() {
+				console.log(i)
+			})
+		}
+
+		arr[2]();
+
+    </script>
+
+</body>
+</html>
